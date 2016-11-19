@@ -24,15 +24,15 @@ public class DistinctDecorator extends SmartArrayDecorator {
             }
         }
 
-        Object[] objects2 = new Object[list.size()];
+        Object[] final_objects = new Object[list.size()];
         for (int q = 0; q < list.size(); q++)
         {
-            objects2[q] = list.get(q);
+            final_objects[q] = list.get(q);
         }
-        return objects2;
+        return final_objects;
     }
     public String operationDescription(){
-        return smartArray.operationDescription() + ", plus distict decorator";
+        return smartArray.operationDescription() + ", plus distinct decorator";
     }
 
     @Override

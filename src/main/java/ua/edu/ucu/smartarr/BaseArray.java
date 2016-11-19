@@ -14,7 +14,7 @@ public class BaseArray implements SmartArray{
         return Arrays.copyOf(arr, arr.length);
     }
     public String operationDescription(){
-        return "This is method string in BaseArray";
+        return "This is BaseArray";
     }
     public int size(){
         return arr.length;

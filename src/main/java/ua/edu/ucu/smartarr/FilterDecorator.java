@@ -23,17 +23,17 @@ public class FilterDecorator extends SmartArrayDecorator {
                 count ++;
             }
         }
-        Object[] objects1 = new Object[objects.length - count];
+        Object[] final_objects = new Object[objects.length - count];
         count = 0;
         for (int p = 0; p < objects.length; p++)
         {
             if(!objects[p].equals(-1))
             {
-                objects1[count] = objects[p];
+                final_objects[count] = objects[p];
                 count++;
             }
         }
-        return objects1;
+        return final_objects;
     }
     public String operationDescription()
     {
