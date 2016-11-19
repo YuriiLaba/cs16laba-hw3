@@ -58,21 +58,11 @@ public class SmartArrayApp {
         // Hint: to convert Object[] to String[] - use the following code
         //Object[] result = studentSmartArray.toArray();
         //return Arrays.copyOf(result, result.length, String[].class);
-        MyPredicate pr = t -> (((Student)t).getYear() == 2 && ((Student)t).getGPA() >= 4);
-        MyComparator cmp = new MyComparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                return (((Student) o1).getSurname().compareTo(((Student) o2).getSurname()));
-            }
-        };
-        MyFunction func = new MyFunction() {
-            @Override
-            public Object apply(Object t) {
-                return ((Student) t).getSurname() + " " + ((Student) t).getName();
-            }
-        };
-        sa = new DistinctDecorator(sa);
 
+        MyPredicate pr = t -> (((Student)t).getYear() == 2 && ((Student)t).getGPA() >= 4);
+        MyComparator cmp = (o1, o2) -> (((Student) o1).getSurname().compareTo(((Student) o2).getSurname()));
+        MyFunction func = t -> ((Student) t).getSurname() + " " + ((Student) t).getName();
+        sa = new DistinctDecorator(sa);
         sa = new FilterDecorator(sa, pr);
         sa = new SortDecorator(sa, cmp);
         sa = new MapDecorator(sa, func);

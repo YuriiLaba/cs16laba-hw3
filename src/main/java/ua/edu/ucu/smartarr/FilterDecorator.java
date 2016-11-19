@@ -17,8 +17,9 @@ public class FilterDecorator extends SmartArrayDecorator {
         int count = 0;
         for(int i = 0; i < objects.length; i++)
         {
-            if (!prd.test(objects[i])){
-                objects[i] = -10000;
+            if (!prd.test(objects[i]))
+            {
+                objects[i] = -1;
                 count ++;
             }
         }
@@ -26,21 +27,22 @@ public class FilterDecorator extends SmartArrayDecorator {
         count = 0;
         for (int p = 0; p < objects.length; p++)
         {
-            if(!objects[p].equals(-10000)){
+            if(!objects[p].equals(-1))
+            {
                 objects1[count] = objects[p];
                 count++;
             }
-
         }
         return objects1;
     }
-    public String operationDescription(){
-        return "It is base array. Just save elements";
+    public String operationDescription()
+    {
+        return smartArray.operationDescription() + ", plus filter decorator";
     }
 
     @Override
-    public int size() {
+    public int size()
+    {
         return smartArray.toArray().length;
     }
-
 }

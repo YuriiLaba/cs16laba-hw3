@@ -22,7 +22,7 @@ public class MapDecorator extends SmartArrayDecorator {
 
     @Override
     public String operationDescription() {
-        return null;
+        return smartArray.operationDescription() + ", plus map decorator";
     }
 
     @Override

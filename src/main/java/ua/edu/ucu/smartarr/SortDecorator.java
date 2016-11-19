@@ -22,7 +22,7 @@ public class SortDecorator extends SmartArrayDecorator {
 
     @Override
     public String operationDescription() {
-        return smartArray.toString();
+        return smartArray.operationDescription() + ", plus sort decorator";
     }
 
     @Override
